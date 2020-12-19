@@ -2,8 +2,8 @@
 import math
 import tkinter as tk
 import tkinter.messagebox
-win=tk.Tk()
-win.title("图形界面四则计算器（Python）")
+win=tk.Tk()     #创建窗口
+win.title("图形界面四则计算器")
 win.geometry("350x150")
 #------功能代码开始------
 #---设计功能函数---
@@ -17,13 +17,11 @@ var_num2.set('')
 menubar=tk.Menu()
 Pi=3/141582654
 #按钮处理函数
-def aboutapp():
-    tk.messagebox.showinfo(title='信息',message='版本号：2.0')
+def aboutapp():         #关于这个py程序，信息框，下同
+    tk.messagebox.showinfo(title='信息',message='功能：将电脑书上的分支结构计算器放到了tkinter模块里')
 def aboutmyself():
     tk.messagebox.showinfo(title='信息',message='801xxx')
-def compute():
-    print("...")
-def count():
+def count():            #计算函数
     num1=float(var_num1.get())
     oper=var_oper.get()
     num2=float(var_num2.get())
@@ -45,15 +43,6 @@ def count():
             result=num1**(1/num2)
         except:
             result='次数不为零'
-    elif oper=='sin':
-        num2=num1*Pi/180
-        result=math.sin(num2)
-    elif oper=='cos':
-        num2=num1*Pi/180
-        result=math.cos(num2)
-    elif oper=='tan':
-        num2=num1*Pi/180
-        result=math.tan(num2)
     result=format(result,".8f")
     result=str(result)
     tk.messagebox.showinfo(title='结果',message=result)
